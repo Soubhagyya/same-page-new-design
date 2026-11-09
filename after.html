@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TECHNOVA 2026 - College Tech Fest</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --surface: #111827;
+      --surface-elevated: #1f2937;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --accent: #06b6d4;
+      --purple: #8b5cf6;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --border: #374151;
+      --radius: 12px;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Hero Section */
+    .hero-card {
+      background: linear-gradient(135deg, rgba(31, 41, 55, 0.7), rgba(17, 24, 39, 0.8));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      padding: 48px 36px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-card p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .hero-card a {
+      display: inline-block;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 32px;
+      border-radius: 9999px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    }
+
+    .hero-card a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+    }
+
+    /* Section Headings */
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f3f4f6;
+      border-left: 4px solid var(--accent);
+      padding-left: 14px;
+      margin-bottom: 16px;
+    }
+
+    /* Cards & Lists */
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    li {
+      background: var(--surface-elevated);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 18px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    li:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    /* Highlights */
+    .highlights-box p {
+      background: var(--surface-elevated);
+      border-left: 3px solid var(--purple);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    /* Table Design */
+    .table-container {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+      background: var(--surface-elevated);
+    }
+
+    th {
+      background: #111827;
+      color: #93c5fd;
+      padding: 14px 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #e5e7eb;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Form Design */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 540px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25);
+    }
+
+    button[type="submit"] {
+      background: linear-gradient(135deg, #06b6d4, #2563eb);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 24px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(6, 182, 212, 0.5);
+    }
+
+    /* Footer / Notes */
+    .footer-section {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Mobile Responsive Breakpoints */
+    @media (max-width: 640px) {
+      body {
+        padding: 20px 12px;
+      }
+      .hero-card {
+        padding: 32px 18px;
+      }
+      .section-card {
+        padding: 20px 16px;
+      }
+      ul {
+        grid-template-columns: 1fr;
+      }
+      td, th {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero-card">
+      <h1>TECHNOVA 2026</h1>
+      <p>Three days of robotics, code and music.</p>
+      <p>Dates: November 14 to 16, 2026. Venue: Main Campus Amphitheatre.</p>
+      <a href="#register">Register now</a>
+    </div>
+
+    <div class="section-card">
+      <h2>Featured Tracks</h2>
+      <ul>
+        <li>Robotics Arena: Line follower, combat bots, and autonomous maze solving.</li>
+        <li>24-Hour Hackathon: Build production web apps and hardware IoT solutions.</li>
+        <li>Star Music Night: Live band performance and electronic music concert.</li>
+      </ul>
+    </div>
+
+    <div class="section-card highlights-box">
+      <h2>Event Highlights</h2>
+      <p>Keynote: Autonomous Space Exploration and Planetary Robotics.</p>
+      <p>Grand Prize Pool: 2,50,000 Rupees across all competitions.</p>
+      <p>Industry Presence: 50+ leading technology companies hiring interns.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>Registration Passes</h2>
+      <div class="table-container">
+        <table border="1">
+          <tr>
+            <th>Pass Type</th>
+            <th>Includes</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>Student Explorer</td>
+            <td>Access to all workshops and tech exhibitions.</td>
+            <td>199 Rupees</td>
+          </tr>
+          <tr>
+            <td>Hackathon Team Pass</td>
+            <td>Full 24h hackathon entry, mentorship, meals, and swag kit.</td>
+            <td>699 Rupees</td>
+          </tr>
+          <tr>
+            <td>All-Access VIP</td>
+            <td>Front row music night access, hackathon entry, and dinner.</td>
+            <td>999 Rupees</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-card" id="register">
+      <h2>Book Your Ticket</h2>
+      <form>
+        <label>Full Name:</label><br>
+        <input type="text"><br>
+        <label>College Email:</label><br>
+        <input type="email"><br>
+        <label>Select Pass:</label><br>
+        <select>
+          <option>Student Explorer - 199 Rupees</option>
+          <option>Hackathon Team Pass - 699 Rupees</option>
+          <option>All-Access VIP - 999 Rupees</option>
+        </select><br><br>
+        <button type="submit">Confirm Registration</button>
+      </form>
+    </div>
+
+    <div class="footer-section">
+      <p>Questions? Contact technova2026@campus.edu or call 9876543210.</p>
+      <p>Organized by Student Technical Council. Soubhagyya Bhattacharya, Lead Coordinator.</p>
+    </div>
+  </div>
+</body>
+</html>
